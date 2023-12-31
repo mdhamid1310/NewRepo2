@@ -1,0 +1,47 @@
+﻿@model List<DAL.Policy>
+
+
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007BFF;
+        color: white;
+    }
+</style>
+
+<h2>List of Policies</h2>
+
+<table>
+    <tr>
+        <th>Policy ID</th>
+        <th>Policy Number</th>
+        <th>Policy Holder</th>
+        <th>Applied Date</th>
+        <th>Category</th>
+    </tr>
+    @foreach (var policy in Model)
+    {
+        <tr>
+            <td>@policy.PolicyId</td>
+            <td>@policy.PolicyNumber</td>
+            <td>@policy.PolicyHolder</td>
+            <td>@policy.AppliedDate.ToShortDateString()</td>
+            <td>@policy.Category</td>
+        </tr>
+    }
+</table>
+
+
+

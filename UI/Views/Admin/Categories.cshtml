@@ -1,0 +1,37 @@
+﻿@model List<DAL.Category>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007BFF; /* Choose your desired background color */
+        color: white; /* White text color for the header */
+    }
+</style>
+
+<h2>List of Categories</h2>
+
+<table>
+    <tr>
+        <th>Category ID</th>
+        <th>Category Name</th>
+        <th>Number of Policies</th>
+    </tr>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.CategoryId</td>
+            <td>@category.CategoryName</td>
+            <td>@(category.Policies != null ? category.Policies.Count : 0)</td>
+        </tr>
+    }
+</table>
